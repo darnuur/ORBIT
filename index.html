@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>O.R.B.I.T.</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header>
+    <h1>O.R.B.I.T.</h1>
+    <p>Operational Robotic Biometric Intelligent Triage</p>
+  </header>
+
+  <!-- PATIENT INFO -->
+  <div class="card" id="patientInfoCard">
+    <select id="language">
+      <option value="en">English</option>
+      <option value="ph">Filipino</option>
+    </select>
+
+    <p id="welcome">Hello! I am O.R.B.I.T. Please enter your info.</p>
+
+    <input type="text" id="name" placeholder="Patient Name">
+    <input type="number" id="age" placeholder="Age">
+
+    <button onclick="savePatient()" id="continueBtn">Continue</button>
+  </div>
+
+  <!-- SYMPTOMS -->
+  <div class="card hidden" id="symptomCard">
+    <h3>Select Your Symptoms</h3>
+    <label><input type="checkbox" value="Fever"> Fever</label><br>
+    <label><input type="checkbox" value="Cough"> Cough</label><br>
+    <label><input type="checkbox" value="Headache"> Headache</label><br>
+    <label><input type="checkbox" value="Chest Pain"> Chest Pain</label><br>
+    <label><input type="checkbox" value="Difficulty Breathing"> Difficulty Breathing</label><br>
+    <label><input type="checkbox" value="Dizziness"> Dizziness</label><br>
+    <label><input type="checkbox" value="Nausea"> Nausea</label><br>
+    <label><input type="checkbox" value="Fatigue"> Fatigue</label><br>
+
+    <button class="primary" onclick="confirmSymptoms()">Confirm Symptoms</button>
+  </div>
+
+  <!-- ROBOT CONTROLS -->
+  <div class="card hidden" id="controls">
+    <p>Patient Code: <span id="patientCode"></span></p>
+    <button class="primary" onclick="startOrbit()">Start O.R.B.I.T.</button>
+    <button class="secondary" onclick="collectVitals()">Collect Vital Signs</button>
+    <button class="danger" onclick="printReport()">Print Report</button>
+  </div>
+
+  <!-- STATUS -->
+  <div class="card status">
+    <p id="status">Ready.</p>
+  </div>
+
+  <!-- DOCTOR SEARCH -->
+  <div class="card">
+    <h3>Doctor Search Patient Code</h3>
+    <input type="text" id="searchCode" placeholder="Enter Patient Code">
+    <button onclick="searchPatient()">Search</button>
+    <div id="searchResult"></div>
+  </div>
+
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
